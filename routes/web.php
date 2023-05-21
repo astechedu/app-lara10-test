@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\AjaxController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,3 +16,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::get('/', [AjaxController::class,'index'])->name('ajax.index');
+
+Route::get('/ajaxlists', [AjaxController::class,'test'])->name('ajax.lists');
+
+Route::post('/testpost', [AjaxController::class,'testpost'])->name('ajax.testpost');
